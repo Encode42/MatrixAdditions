@@ -15,15 +15,14 @@ import org.bukkit.entity.Player;
 
 import java.util.Map;
 
-public class SetViolations {
-	@CommandMethod("matrixadditions setvl <player> <hack> <level>")
-	@CommandDescription("Set the violation level for specific checks on a player.")
-	@CommandPermission("matrixadditions.setvl")
-	private void resetViolations(
-		CommandSender sender,
-		@Argument("player") MultiplePlayerSelector player,
-		@Argument("hack") HackType hackType,
-		@Argument("level") int level
+public class TempBypassAll {
+	@CommandMethod("matrixadditions tempbypassall <player> <time>")
+	@CommandDescription("Temporarily bypasses all checks for a player.")
+	@CommandPermission("matrixadditions.tempbypassall")
+	private void tempBypassAll(
+			CommandSender sender,
+			@Argument("player") MultiplePlayerSelector player,
+			@Argument("time") int time
 	) {
 		Config messages = MatrixAdditions.getMessages();
 
@@ -31,14 +30,13 @@ public class SetViolations {
 		MatrixAPI matrixAPI = MatrixAdditions.matrixAPI();
 
 		for (Player p : player.getPlayers()) {
-			// Set violations
-			matrixAPI.setViolations(p.getPlayer(), hackType, level);
+			// Temporary bypass for all hack types
+			for (HackType h : HackType.values()) matrixAPI.tempBypass(p, h, (long) time);
 
 			// Command response
-			Message.send(sender, messages.getString("commands.setvl"), Map.of(
+			Message.send(sender, messages.getString("commands.tempbypassall"), Map.of(
 				"player", p.getName(),
-				"hack", hackType.name(),
-				"number", String.valueOf(level)
+				"time", String.valueOf(time)
 			));
 		}
 	}

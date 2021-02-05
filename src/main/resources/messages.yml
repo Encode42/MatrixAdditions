@@ -1,3 +1,23 @@
 ## Prefix
-# Message displayed before every message
+# Text displayed before every message
 prefix: "&7[&6MatrixAdditions&7] &f"
+
+## Commands
+# Message sent with commands
+commands:
+  # Reset violations
+  resetvl:
+    # Reset specific hack types
+    type: "Cleared all ${hack} violations for ${player}."
+
+    # Reset all hack types
+    all: "Cleared ${player}'s violations."
+
+  # Set violations
+  setvl: "Set ${player}'s ${hack} violations to ${number}."
+
+  # Temporary global hack bypass
+  tempbypassall: "${player} will now bypass all checks for ${time} milliseconds."
+
+  # Reload
+  reload: "MatrixAdditions ${version} has been reloaded."

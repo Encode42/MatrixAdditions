@@ -1,0 +1,9 @@
+name: MatrixAdditions
+prefix: MatrixAdditions
+description: Various additions for Matrix Anticheat!
+authors: [ Encode42 ]
+website: https://encode42.dev/MatrixAdditions
+version: ${project.version}
+main: dev.encode42.matrixadditions.MatrixAdditions
+api-version: 1.16
+depend: [ Matrix ]

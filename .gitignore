@@ -1,0 +1,9 @@
+# IntelliJ Files
+/.idea
+*.iml
+
+# Compiled files
+/target
+
+# Matrix
+/Matrix*.jar

@@ -31,6 +31,18 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.2.4</version>
+				<configuration>
+					<relocations>
+						<relocation>
+							<pattern>net.kyori</pattern>
+							<shadedPattern>dev.encode42.matrixadditions.shaded.kyori</shadedPattern>
+						</relocation>
+						<relocation>
+							<pattern>cloud</pattern>
+							<shadedPattern>dev.encode42.matrixadditions.shaded.cloud</shadedPattern>
+						</relocation>
+					</relocations>
+				</configuration>
 				<executions>
 					<execution>
 						<phase>package</phase>

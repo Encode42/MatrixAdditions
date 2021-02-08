@@ -4,11 +4,7 @@ import dev.encode42.encodedapi.Command;
 import dev.encode42.encodedapi.Config;
 import dev.encode42.encodedapi.Message;
 import dev.encode42.encodedapi.Util;
-import dev.encode42.matrixadditions.arguments.HackTypeArgument;
-import dev.encode42.matrixadditions.commands.Reload;
-import dev.encode42.matrixadditions.commands.ResetViolations;
-import dev.encode42.matrixadditions.commands.SetViolations;
-import dev.encode42.matrixadditions.commands.TempBypassAll;
+import dev.encode42.matrixadditions.command.CommandRegistration;
 import me.rerere.matrix.api.MatrixAPI;
 import me.rerere.matrix.api.MatrixAPIProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -46,15 +42,9 @@ public final class MatrixAdditions extends JavaPlugin {
 		messages = new Config("messages", true);
 		reload();
 
-		// Register commands
-		Command.register(
-			this,
-			new Reload(),
-			new HackTypeArgument(),
-			new ResetViolations(),
-			new SetViolations(),
-			new TempBypassAll()
-		);
+		// Command and argument registration
+		Command.create(this);
+		Command.recursiveRegister("dev.encode42.matrixadditions.command", CommandRegistration.class);
 	}
 
 	// Reload the plugin

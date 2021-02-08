@@ -1,9 +1,10 @@
-package dev.encode42.matrixadditions.arguments;
+package dev.encode42.matrixadditions.command.arguments;
 
 import cloud.commandframework.annotations.parsers.Parser;
 import cloud.commandframework.annotations.suggestions.Suggestions;
 import cloud.commandframework.context.CommandContext;
 import cloud.commandframework.exceptions.parsing.NoInputProvidedException;
+import dev.encode42.matrixadditions.command.CommandRegistration;
 import me.rerere.matrix.api.HackType;
 import org.bukkit.command.CommandSender;
 
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
+@CommandRegistration
 public class HackTypeArgument {
 	@Parser(suggestions = "HackType")
 	public HackType hackTypeArgument(CommandContext<CommandSender> sender, Queue<String> inputQueue) {

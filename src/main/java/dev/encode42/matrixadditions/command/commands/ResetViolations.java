@@ -1,10 +1,11 @@
-package dev.encode42.matrixadditions.commands;
+package dev.encode42.matrixadditions.command.commands;
 
 import cloud.commandframework.annotations.Argument;
 import cloud.commandframework.annotations.CommandDescription;
 import cloud.commandframework.annotations.CommandMethod;
 import cloud.commandframework.annotations.CommandPermission;
 import cloud.commandframework.bukkit.arguments.selector.MultiplePlayerSelector;
+import dev.encode42.matrixadditions.command.CommandRegistration;
 import dev.encode42.encodedapi.Config;
 import dev.encode42.encodedapi.Message;
 import dev.encode42.matrixadditions.MatrixAdditions;
@@ -15,6 +16,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Map;
 
+@CommandRegistration
 public class ResetViolations {
 	@CommandMethod("matrixadditions resetvl <player> [hack]")
 	@CommandDescription("Reset the violation level for all or specific checks on a player.")
